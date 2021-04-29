@@ -732,7 +732,7 @@ class _HomeState extends State<Home> {
                                               height: MediaQuery.of(context)
                                                       .size
                                                       .height /
-                                                  2.25,
+                                                  2.5,
                                               child: TabBarView(
                                                 children: [
                                                   Container(
@@ -1210,7 +1210,7 @@ class _HomeState extends State<Home> {
                                               height: MediaQuery.of(context)
                                                       .size
                                                       .height /
-                                                  2.25,
+                                                  2.5,
                                               child: TabBarView(
                                                 children: [
                                                   Container(
@@ -1802,10 +1802,10 @@ class _HomeState extends State<Home> {
                         unselectedLabelColor: Colors.black,
                         tabs: [
                           Tab(
-                            text: 'Next 4 Hours',
+                            text: 'Next 5 Hours',
                           ),
                           Tab(
-                            text: 'Next 4 Days',
+                            text: 'Next 5 Days',
                           ),
                         ],
                       ),
