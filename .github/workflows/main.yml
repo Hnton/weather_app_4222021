@@ -13,7 +13,7 @@ jobs:
       with:
         flutter-version: '2.x'
     - run: flutter pub get
-    - run: flutter build apk --debug --split-per-abi
+    - run: flutter build apk --obfuscate --split-debug-info=/weather_app_4222021
     - name: Create a Release APK
       uses: ncipollo/release-action@v1
       with:
