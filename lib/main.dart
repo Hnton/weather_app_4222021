@@ -501,6 +501,14 @@ class _HomeState extends State<Home> {
     });
   }
 
+  String windspeedconvert() {
+    if (units == "Imperial") {
+      return " MPH";
+    } else {
+      return " M/S";
+    }
+  }
+
   String formatDayLight(var rise, var set) {
     DateTime dateTimeRise = DateTime.parse(rise).toLocal();
     DateTime dateTimeSet = DateTime.parse(set).toLocal();
@@ -572,6 +580,10 @@ class _HomeState extends State<Home> {
     });
   }
 
+  String changeUnits(String s) {
+    return units = s;
+  }
+
   void addInitialCityToList() {
     setState(() {
       cities.insert(
@@ -614,7 +626,43 @@ class _HomeState extends State<Home> {
                   this.addCityToList(value);
                 });
               },
-            )
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: ElevatedButton(
+                child: const Text("Imperial"),
+                onPressed: () {
+                  setState(() {
+                    units = "Imperial";
+                    this.getWeather();
+                  });
+                },
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: ElevatedButton(
+                child: const Text("Kelvin"),
+                onPressed: () {
+                  setState(() {
+                    units = "Standard";
+                    this.getWeather();
+                  });
+                },
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: ElevatedButton(
+                child: const Text("Metric"),
+                onPressed: () {
+                  setState(() {
+                    units = "metric";
+                    this.getWeather();
+                  });
+                },
+              ),
+            ),
           ],
         ),
       ),
@@ -801,12 +849,12 @@ class _HomeState extends State<Home> {
                                                         ListTile(
                                                           title: Text(
                                                               "Wind Speed"),
-                                                          trailing: Text(
-                                                              windSpeed1 != null
-                                                                  ? windSpeed1
-                                                                          .toString() +
-                                                                      " MPH"
-                                                                  : "Loading"),
+                                                          trailing: Text(windSpeed1 !=
+                                                                  null
+                                                              ? windSpeed1
+                                                                      .toString() +
+                                                                  windspeedconvert()
+                                                              : "Loading"),
                                                         ),
                                                         ListTile(
                                                           title: Text(
